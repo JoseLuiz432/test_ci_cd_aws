@@ -22,6 +22,6 @@ phases:
     commands:
       - echo Pushing the Docker image ... | tee -a log.txt
       - docker-compose push 2>&1 | tee -a log.txt
-
+      - printf '[{"name”:"__ECS_CONTAINER_NAME__","imageUri":"%s"}]' ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_PREFIX}/test_ci_cd:${IMAGE_TAG} > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
