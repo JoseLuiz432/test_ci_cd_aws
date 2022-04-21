@@ -22,7 +22,3 @@ phases:
     commands:
       - echo Pushing the Docker image ... | tee -a log.txt
       - docker-compose push 2>&1 | tee -a log.txt
-
-artifacts:
-  files:
-    - imagedefinitions.json
