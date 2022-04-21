@@ -6,8 +6,6 @@ services:
         - FLASK_ENV=development
         - FLASK_RUN_PORT=5000
     build: .  
-    cache_from: 
-        - ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_PREFIX}/test_ci_cd:${IMAGE_TAG}
     image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_PREFIX}/test_ci_cd:${IMAGE_TAG}
     command: flask run --host=0.0.0.0
     ports: 
