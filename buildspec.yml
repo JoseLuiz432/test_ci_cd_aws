@@ -11,7 +11,7 @@ phases:
       - echo "CODEBUILD_RESOLVED_SOURCE_VERSION:${CODEBUILD_RESOLVED_SOURCE_VERSION}" | tee -a sns-message.txt
       - echo "DOCKER_COMPOSE_VERSION:${DOCKER_COMPOSE_VERSION}" | tee -a sns-message.txt
       - echo Sending notification ...
-      - $(aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com)
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
       - echo Pulling Docker Images for cache ... | tee -a log.txt
       - docker-compose pull --ignore-pull-failures --parallel 2>&1 | tee -a log.txt
   build:
