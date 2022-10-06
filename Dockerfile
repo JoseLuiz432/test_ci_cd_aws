@@ -8,8 +8,8 @@ RUN make install
 
 COPY . .
 
-# ENV FLASK_APP=flaskr
-# ENV FLASK_ENV=development
-# ENV FLASK_RUN_PORT=8000
-# EXPOSE 8000
-# CMD ["flask", "run"]
+ENV FLASK_APP=flaskr
+ENV FLASK_ENV=development
+ENV FLASK_RUN_PORT=8000
+EXPOSE 8000
+CMD ["flask", "run"]
